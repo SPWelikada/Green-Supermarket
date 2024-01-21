@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../assets/css/global-styles.css">
+    <link rel="stylesheet" href="../../assets/admin/css/sidebar.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body style="display: flex; flex-direction: row;">
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Admin Dashboard</h3>
+            </div>
+    
+            <ul class="list-unstyled components">
+                <p>Welcome, Admin!</p>
+
+                <!-- <li>
+                    <a href="${pageContext.request.contextPath}/admin">Dashboard</a>
+                </li> -->
+
+                <li>
+                    <a href="" id="manageProducts">Manage Products</a>
+                </li>
+
+                <li>
+                    <a href="" id="helpdesk">Manage Help Desk</a>
+                </li>
+
+                <li>
+                    <a href="" id="manageFeedBacks">Manage Feedbacks</a>
+                </li>
+
+                <li>
+                    <a href="" id="manageProfiles">Manage Profile</a>
+                </li>
+
+                <li>
+                    <a href="" id="manageOrders">Manage Order</a>
+                </li>
+
+            </ul>
+    
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a  class="btn btn-danger">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    
+        <div id="content">
+            <!-- Your page content goes here -->
+        </div>
+    </div>
+    <div style="width: 100vw;height:100vh" id="load-view">
+         
+
+            <!-- products -->
+            <div class="container mt-4" id="manageProductView" style="display: block;">
+                <h2 class="mb-4">Manage Products</h2>
+                <button id="loadProductsBtn" class="btn btn-primary mb-3">Load Products</button>
+            <div style="display: flex;flex-direction: column;"> 
+            
+                <form enctype="multipart/form-data">
+                    <input type="hidden" id="action" name="action" value="add">
+            
+                    <div class="form-group">
+                        <label for="productId">Product Id:</label>
+                        <input type="text" id="productId" name="id" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="name">Product Name:</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="listPrice">List Price:</label>
+                        <input type="number" id="listPrice" name="listPrice" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="unitPrice">Unit Price:</label>
+                        <input type="number" id="unitPrice" name="unitPrice" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="qty">Quantity:</label>
+                        <input type="number" id="qty" name="qty" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="imageFile">Product Image:</label>
+                        <input type="file" id="imageFile" name="imageFile" class="form-control-file" accept="image/*" required>
+                    </div>
+            
+                    <div class="form-group" style="display: flex;flex-direction: row;column-gap: 10px;">
+                        <button type="submit" class="btn btn-success" id="addProductBtn">Add Product</button>
+                        <button type="button" id="updateProductBtn" class="btn btn-warning">Update Product</button>
+                        <button type="button" id="deleteProductBtn" class="btn btn-danger">Delete Product</button>
+                    </div>
+                </form>
+            
+                <div style="height:200px; overflow-y: scroll;margin: 10px;">
+            
+                    <table id="productTable" class="table table-bordered mt-4">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>List Price</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Table body will be populated dynamically using JavaScript -->
+                        </tbody>
+                    </table>
+            
+                </div>
+            </div> 
+            </div>
+
+            <!-- helpDisk -->
+            <div class="container mt-4" id="helpDiskView" style="display: none;">
+                <h2 class="mb-4">Manage Help Desk</h2>
+            
+                <form >
+                    <div class="form-group">
+                        <label for="faqs">FAQs:</label>
+                        <input type="text" id="faqs" name="faqs" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="questions">Questions:</label>
+                        <input type="text" id="questions" name="questions" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="answers">Answers:</label>
+                        <input type="text" id="answers" name="answers" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="guidance">Guidance:</label>
+                        <textarea id="guidance" name="guidance" class="form-control" required></textarea>
+                    </div>
+            
+                    <button type="submit" class="btn btn-success">Submit Help Desk Ticket</button>
+                </form>
+            
+                <table class="table table-bordered mt-4">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>FAQs</th>
+                        <th>Questions</th>
+                        <th>Answers</th>
+                        <th>Guidance</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="helpDeskTableBody">
+                    <!-- Table body will be populated dynamically using JavaScript or server-side logic -->
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- feedbacks -->
+            <div class="container mt-4" id="manageFeedBackView" style="display: none;" >
+                <h2 class="mb-4">Manage Feedbacks</h2>
+                <button id="loadFeedbacksBtn" class="btn btn-primary mb-3">Load Feedbacks</button>
+            
+                <form id="addFeedbackForm" >
+                    <div class="form-group">
+                        <label for="customerId">Customer ID:</label>
+                        <input type="text" id="customerId" name="customerId" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" class="form-control" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating:</label>
+                        <input type="text" id="rating" name="rating" class="form-control" required>
+                    </div>
+                    <div class="form-group" style="display: flex;flex-direction: row;column-gap: 20px;">
+                        <input type="hidden" id="productId" name="productId">
+                        <button type="submit" class="btn btn-success">Add Feedback</button>
+                        <button type="button" class="btn btn-primary" onclick="updateFeedback()">Update Feedback</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteFeedback()">Delete Feedback</button>
+                    </div>
+                </form>
+            
+                <table id="feedbackTable" class="table table-bordered mt-4">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Customer ID</th>
+                        <th>Message</th>
+                        <th>Rating</th>
+                    </tr>
+                    </thead>
+                    <tbody id="feedbackTableBody" class="feedbackTableBody">
+                    <!-- Data will be loaded dynamically using JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- profiles -->
+            <div class="container mt-4" id="manageProfilesView" style="display: none;">
+                <h2 class="mb-4">User Profile</h2>
+            
+                <form >
+                    <div class="form-group">
+                        <label for="contact">Contact:</label>
+                        <input type="text" id="contact" name="contact" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="userName">User Name:</label>
+                        <input type="text" id="userName" name="userName" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" class="form-control" required>
+                    </div>
+            
+                    <button type="submit" class="btn btn-success">Update Profile</button>
+                </form>
+            </div>
+
+
+            <!-- updateOrder -->
+             
+           <div class="container mt-4" id="manageOrderView" style="display: none;">
+                <h2 class="mb-4">Manage Orders</h2>
+                <button id="loadOrdersBtn" class="btn btn-primary mb-3">Load Orders</button>
+               <div style="display: flex;flex-direction: column;"> 
+            
+                <form >
+                    <input type="hidden" id="action" name="action" value="add">
+            
+                    <div class="form-group">
+                        <label for="productId">Order Id :</label>
+                        <input type="text" id="OrderId" name="id" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="name">Customer Id :</label>
+                        <input type="text" id="orderCustomerId" name="name" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="listPrice">Date :</label>
+                        <input type="date" id="orderDate" name="date" class="form-control" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="status">Status:</label>
+                        <select id="status" name="orderStatus" class="form-control" required>
+                            <option value="pending">Pending</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancel">Cancel</option>
+                        </select>
+                    </div>
+            
+                
+            
+                    <div class="form-group" style="display: flex;flex-direction: row;column-gap: 10px;">
+                        <button type="button" id="updateOrderBtn" class="btn btn-warning">Update Order</button>
+                        <button type="button" id="deleteOrderBtn" class="btn btn-danger">Delete Product</button>
+                    </div>
+                </form>
+            
+                <div style="height:200px; overflow-y: scroll;margin: 10px;">
+            
+                    <table id="orderTable" class="table table-bordered mt-4">
+                        <thead>
+                        <tr>
+                            <th>orderId</th>
+                            <th>customerId</th>
+                            <th>orderDate</th>
+                            <th>status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <!-- Table body will be populated dynamically using JavaScript -->
+                        </tbody>
+                    </table>
+            
+                </div>
+              </div> 
+            </div>
+    </div>   
+
+    <div id="loader_container" style="position: fixed;width: 100vw;height: 100vh;top: 0;left: 0;right: 0;bottom: 0;margin: auto;background-color:#ffffff6e;overflow: hidden;display: none;">
+                  <div style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto; height: 100px;width: 100px;">
+                      <img src="../../assets/images/loader.gif" width="50px" alt="">
+                   </div>
+    </div>
+
+    <script src="../../assets/libs/js/jquery.min.js"></script>
+    <script src="../admin/service/admin.js"></script>
+    <script src="../admin/service/helpDesk.js"></script>
+    <script src="../admin/service/feedbacks.js"></script>
+    <script src="../admin/service/profile.js"></script>
+    <script src="../admin/service/order.js"></script>
+    
+ </body>     
+</html>

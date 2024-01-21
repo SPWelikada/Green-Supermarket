@@ -1,0 +1,55 @@
+/* Manage Feedbacks styles */
+.content {
+    margin-left: 200px; /* Adjust this to match the width of your sidebar */
+    padding: 16px;
+}
+
+.content h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#feedbackTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#feedbackTable th, #feedbackTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#feedbackTable th {
+    background-color: #f2f2f2;
+}
+
+#addFeedbackForm {
+    margin-top: 20px;
+}
+
+#addFeedbackForm label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+#addFeedbackForm input,
+#addFeedbackForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#addFeedbackForm button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+#addFeedbackForm button:hover {
+    background-color: #45a049;
+}

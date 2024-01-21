@@ -1,0 +1,134 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    align-items: stretch;
+    position: fixed;
+    left: 0;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    background: #343a40;
+    color: #fff;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h3,
+#sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
+
+#sidebar ul.components {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+    height: 80vh;
+}
+
+#sidebar ul p {
+    color: #a9a6a6;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+#sidebar ul li.active > a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before,
+a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #343a40;
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
+    font-size: 1.8em;
+}
+
+#sidebar a[data-toggle="collapse"] {
+    position: relative;
+}
+
+#sidebar .collapse.show {
+    background: white;
+}
+
+#sidebar .collapse.show a {
+    color: #fff;
+}
+
+#sidebar .collapse.show a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+CTAs {
+    padding: 20px;
+}
+
+CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.btn-danger {
+    background: #d9534f;
+    border: none;
+    color: #fff !important;
+    padding: 10px;
+}
+
+.btn-danger:hover {
+    background: #c9302c;
+}

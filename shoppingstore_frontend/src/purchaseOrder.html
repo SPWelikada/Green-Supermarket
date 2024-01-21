@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Purchae order </title>
+</head>
+  <body style="width: 99vw; height: 95vh;display: flex;justify-content: center;align-items: center;">
+        <div style="width: 700px;height: 600px;display: flex;flex-direction: column;justify-content:space-between;border-radius: 10px; background-color: #f3f2f2; box-shadow: 5px 5px 10px #888888;">
+               <div style="width: 100%;height: 10% ;display: flex;justify-content: center;align-items: center;">
+                      <h1>My cart</h1>
+               </div>
+               <div id="cartViewFinal" style="width: 100%;height: 80% ;overflow-y: scroll; list-style-type: none;">
+                         
+               </div>
+               <div style="width: 100%;height: 10% ;display: flex;flex-direction: row;justify-content: center;column-gap: 10px;align-items: center;">
+                     <div>
+                            <label>Total </label>
+                            <label id="total">$0</label>
+                     </div>     
+                    
+               </div>  
+               <div style="width: 100%;height: 10% ;display: flex;flex-direction: row;justify-content: center;column-gap: 10px;align-items: center;">
+                         <button id="cancelOrder" style="height: 40px;width: 100px;background-color: yellow;">Cancel</button>
+                         <button id="btnPlaceOrder" style="height: 40px;width: 100px;background-color: red;">Buy</button>
+               </div>  
+        </div>    
+       
+      <div id="loader_container" style="position: fixed;width: 100vw;height: 100vh;top: 0;left: 0;right: 0;bottom: 0;margin: auto;background-color:#ffffff6e;overflow: hidden;display: none;">
+       <div style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;margin: auto; height: 100px;width: 100px;">
+           <img src="../assets/images/loader.gif" width="50px" alt="">
+        </div>
+      </div>
+       <script src="../assets/libs/js/jquery.min.js"></script>
+       <script src="../src/services/purchaseOrder.js"></script> 
+       <script src="../src/services/orderService.js"></script> 
+  </body>
+</html>

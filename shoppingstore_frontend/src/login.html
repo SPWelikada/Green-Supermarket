@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/global-styles.css">
+  <title>Login/Register Page</title>
+</head>
+<body>
+
+  <div class="client_login-container">
+    <div class="tabs">
+      <button class="tab active" id="loginTab" onclick="showTab('client_loginForm')">Login</button>
+      <button class="tab" id="registerTab" onclick="showTab('client_registerForm')">Register</button>
+    </div>
+
+    <form action="#" method="post" class="form" id="client_loginForm" style="display: flex;flex-direction: column;align-items: baseline;">
+      <h2>Login</h2>
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="client_login_Username" name="username" required>
+      </div>
+     
+       <div>
+        <label for="password">Password:</label>
+        <input type="password" id="client_login_Password" name="password" required>
+       </div>
+      
+
+      <button id="client_login" type="submit">Login</button>
+    </form>
+
+    <form action="#" method="post" class="form" id="client_registerForm" style="display: flex;flex-direction: column;align-items: baseline;">
+      <h2>Register</h2>
+     
+      <div>
+        <label for="registerUsername">name:</label>
+        <input type="text" id="client_register_name" name="registerUsername" required>
+      </div>
+
+      <div>     
+        <label for="registerEmail">Email:</label>
+        <input type="email" id="client_register_email" name="registerEmail" required>
+      </div>
+        
+      <div>
+        <label for="registerPhone">Phone Number:</label>
+        <input id="client_register_phone" name="registerPhone"  placeholder="Format: 123-456-7890" required>
+        <!-- pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" -->
+      </div>
+        
+      <div>
+        <label for="registerUsername">Username:</label>
+        <input type="text" id="client_register_username" name="registerUsername" required>
+      </div>
+      
+      <div>
+        <label for="confirmPassword">Password:</label>
+        <input type="password" id="client_register_password" name="confirmPassword" required>
+      </div>
+      
+
+      <button id="register_client" type="submit">Register</button>
+    </form>
+  </div>
+
+  <script src="../assets/libs/js/jquery.min.js"></script>
+  <script src="../src/services/clientService.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    showTab('client_loginForm');
+  });
+
+  function showTab(tabName) {
+    const loginForm = document.getElementById('client_loginForm');
+    const registerForm = document.getElementById('client_registerForm');
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+
+    if (tabName === 'client_loginForm') {
+      loginForm.style.display = 'block';
+      registerForm.style.display = 'none';
+      loginTab.classList.add('active');
+      registerTab.classList.remove('active');
+    } else {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+      loginTab.classList.remove('active');
+      registerTab.classList.add('active');
+    }
+  }
+</script>
+
+
+</body>
+</html>

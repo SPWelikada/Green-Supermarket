@@ -1,0 +1,12 @@
+#productTable {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#productTable th, #productTable td {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

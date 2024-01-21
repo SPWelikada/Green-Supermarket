@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/eCommerceStyle.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <title>iPhone X - Product Page</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+
+    .product-container {
+      text-align: center;
+    }
+
+    .product-image {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin: 10px 0;
+    }
+
+    .product-description {
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .product-price {
+      font-size: 18px;
+      color: #4CAF50;
+      margin-bottom: 15px;
+    }
+
+    .quantity-selector {
+      margin-bottom: 15px;
+    }
+
+    .btnAddCartView, .buy-now-button {
+	 align-items: center;
+      width: 10;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btnAddCartView:hover, .buy-now-button:hover {
+      background-color: #95A045;
+    }
+  </style>
+</head>
+<body style="display: flex;flex-direction: column;overflow-y: scroll;">
+	
+	
+
+<div class="product-container" style="display: flex;flex-direction:row;justify-content: center;align-items: center;margin-right: 10px;">
+  <div style="width:400px;height: 400px;border: 2px solid rgb(207, 207, 207);border-radius:10px;display: flex;
+  align-items: center;
+  justify-content: center;">
+     <img class="product-image" src="../Unnamed Site 2/iphone-x-image.jpg" alt="iPhone X Image" style="background-size: cover;">
+  </div>
+  
+  <div class="product-details" style="width: 400px;">
+    <div class="product-name" >iPhone X</div>
+    <div class="product-description">
+      <p>The iPhone X features a stunning 5.8-inch Super Retina display with HDR and True Tone capabilities, providing an immersive viewing experience. Powered by the A11 Bionic chip, it delivers incredible performance for smooth multitasking and gaming.</p>
+    </div>
+    <div class="product-price">$999.00</div>
+    <div class="quantity-selector">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1">
+    </div>
+    <button class="btnAddCartView">Add to Cart</button>
+    <button class="buy-now-button">Buy Now</button>
+  </div>
+  
+</div>
+
+
+<div style="display: flex;flex-direction: column;width: 80vw;align-items: center;justify-content: center;">
+  <label style="margin-top: 70px;font-size: x-large;">Feed backs</label>
+  <div class="container mt-4">
+        
+  </div>
+  <div class="container mt-4" id="manageFeedBackView" style="display: block;" >
+    <form id="addFeedbackForm" >
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="custMessage" name="message" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating:</label>
+            <input type="number" id="custRating" name="rating" class="form-control" required>
+        </div>
+        <div class="form-group" style="display: flex;flex-direction: row;column-gap: 20px;">
+            <input type="hidden" id="productId" name="productId">
+            <button type="submit" class="btn btn-success" id="btnFeedBackClient">Add Feedback</button>
+        </div>
+      </form>
+    </div>
+
+
+</div>
+
+
+<script src="../assets/libs/js/jquery.min.js"></script>
+<script src="../src/services/product.js"></script>
+<script src="../src/services/productView.js"></script>
+<script src="../src/admin/service/feedbacks.js"></script>
+
+</body>
+</html>
